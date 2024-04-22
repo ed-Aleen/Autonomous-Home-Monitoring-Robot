@@ -1,0 +1,6 @@
+string room_name
+---
+bool success
+second_coursework/YOLODetection[] detections
+bool violation_detected
+string violation_type

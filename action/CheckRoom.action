@@ -1,0 +1,9 @@
+# Define the goal (request)
+int32 num_checks_per_room
+---
+# Define the result
+int32[] rule_violations
+---
+# Define the feedback
+geometry_msgs/Point robot_position
+int32 rule_broken

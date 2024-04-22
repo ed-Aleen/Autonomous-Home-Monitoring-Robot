@@ -1,0 +1,32 @@
+<launch>
+<arg name="nchecks" default="3" />
+<!-- <arg name="vid_folder" default="/home/k22035173/ros_ws/src/second_coursework/src/cw_videos" /> -->
+<!--  please change the path to the real path to  videos on your computer -->
+<arg name="vid_folder" default="/home/k22035173/testing_videos" />
+
+<node pkg='second_coursework' type ='move_to_room_server.py' name ='move_to_room_server' />
+
+<node pkg="second_coursework" type="detection_yolo_ros.py" name="detection_yolo_ros" output="screen"/>
+
+
+<node pkg="second_coursework" type="check_room_server.py" name="check_room_server" output="screen"/>
+
+<node pkg ='second_coursework' type='main_node.py' name ='main_node' output='screen'>
+<param name="nchecks" value="$(arg nchecks)" />
+</node>
+
+<!-- <include file='/opt/itr_ws/src/mhl_robin/speech_database/launch/speech.launch' /> -->
+
+<node pkg="second_coursework" type="itr_cw_video.pyc" name="video_player" args="$(arg vid_folder) test" />
+</launch>
+
+
+
+
+
+
+
+
+
+
+
